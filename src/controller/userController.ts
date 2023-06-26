@@ -7,7 +7,7 @@ export const register = async (req: Request, res: Response) => {
         const userRepo = AppDataSource.getRepository(User);
         const { name, email, password, cpassword } = req.body;
         if (password !== cpassword) {
-            throw new Error(" Password is incorrect ");
+            throw new Error("Password incorrect ");
         }
         let user: User = new User();
         user.email = email;
@@ -33,7 +33,7 @@ export const login = async (req: Request, res: Response) => {
 
         const loginUser: User[] = await userRepo.find({ where: { email: email, password: password } });
         if (loginUser.length === 0) {
-            throw new Error("Password or Email are Incorrect");
+            throw new Error("Password/Email is Incorrect");
         }
         res.status(200).json({
             success: true,

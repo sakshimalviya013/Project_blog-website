@@ -9,14 +9,14 @@ export class Operation {
      @Column()
      title: string;
 
-    @Column()
+     @Column()
     image: string;
 
     @Column()
     description: string;
 
     @CreateDateColumn()
-    createdAt: Date;
+     createdAt: Date;
 
     @ManyToOne(() => User, (user) => user.operations, { eager: true })
     user: User;

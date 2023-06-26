@@ -45,7 +45,7 @@ AppDataSource.initialize().then(() => {
   });
   console.log("Database connection successfully")
 })
-.catch((err)=> console.log("error connecting database",err));
+ .catch((err)=> console.log("error connecting database",err));
 
 
 

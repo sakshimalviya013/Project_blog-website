@@ -15,11 +15,11 @@ app.use(express_1.default.json());
 // Routes
 app.post('/signin', userController_1.register);
 app.post('/login', userController_1.login);
-app.get('/posts', operationController_1.getAllOperation);
+app.get('/operation', operationController_1.getAllOperation);
 app.get('/users', userController_1.getAllUser);
-app.put('/update-post', operationController_1.updateOperation);
-app.delete('/delete-post/:postid', operationController_1.deleteOperation);
-app.post('/create-post', operationController_1.createOperation);
+app.put('/update-operation', operationController_1.updateOperation);
+app.delete('/delete-operation/:operationid', operationController_1.deleteOperation);
+app.post('/create-operation', operationController_1.createOperation);
 // Routes
 // app.get('/',async function (req, res)  {
 //   const userRepo = AppDataSource.getRepository(User);

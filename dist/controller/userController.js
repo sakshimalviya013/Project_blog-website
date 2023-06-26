@@ -17,7 +17,7 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const userRepo = database_1.AppDataSource.getRepository(User_1.User);
         const { name, email, password, cpassword } = req.body;
         if (password !== cpassword) {
-            throw new Error(" Password not Matched ");
+            throw new Error("Password incorrect ");
         }
         let user = new User_1.User();
         user.email = email;
@@ -43,7 +43,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { email, password } = req.body;
         const loginUser = yield userRepo.find({ where: { email: email, password: password } });
         if (loginUser.length === 0) {
-            throw new Error("Password or Email are Incorrect");
+            throw new Error("Password/Email is Incorrect");
         }
         res.status(200).json({
             success: true,
@@ -62,7 +62,6 @@ const getAllUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     try {
         const userRepo = database_1.AppDataSource.getRepository(User_1.User);
         const getAllUser = yield userRepo.find({ relations: { operations: true } });
-        // const getAllUser = await userRepo.find({ where: { name: "ashutosh" } });
         res.status(200).json({
             success: true,
             getAllUser
