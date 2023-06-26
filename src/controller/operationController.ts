@@ -40,7 +40,6 @@ export const createOperation = async (req: Request, res: Response) => {
         });
     }
 }
-
 export const getAllOperation = async (req: Request, res: Response) => {
     try {
 

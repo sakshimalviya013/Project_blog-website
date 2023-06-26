@@ -7,13 +7,13 @@ export const register = async (req: Request, res: Response) => {
         const userRepo = AppDataSource.getRepository(User);
         const { name, email, password, cpassword } = req.body;
         if (password !== cpassword) {
-            throw new Error(" Password not Matched ");
+            throw new Error(" Password is incorrect ");
         }
         let user: User = new User();
         user.email = email;
         user.password = password;
         user.name = name;
-        const registerUser: User = await userRepo.save(user);
+        const registerUser:  User = await userRepo.save(user);
         res.status(200).json({
             success: true,
             registerUser

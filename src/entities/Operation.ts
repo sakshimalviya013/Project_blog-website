@@ -6,8 +6,8 @@ export class Operation {
     @PrimaryGeneratedColumn()
     operationid: number;
 
-    @Column()
-    title: string;
+     @Column()
+     title: string;
 
     @Column()
     image: string;
