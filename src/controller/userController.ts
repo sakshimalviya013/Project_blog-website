@@ -2,7 +2,6 @@ import express, { Request, Response } from 'express';
 import { User } from '../entities/User';
 import { AppDataSource } from '../config/database';
 
-
 export const register = async (req: Request, res: Response) => {
     try {
         const userRepo = AppDataSource.getRepository(User);
@@ -54,7 +53,6 @@ export const getAllUser = async (req: Request, res: Response) => {
 
         const userRepo = AppDataSource.getRepository(User);
         const getAllUser = await userRepo.find({ relations: { operations: true } });
-        // const getAllUser = await userRepo.find({ where: { name: "ashutosh" } });
         res.status(200).json({
             success: true,
             getAllUser
